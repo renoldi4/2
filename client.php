@@ -6,7 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $wsdl_url = "http://127.0.0.1/soap/server/test.wsdl";
 
     try {
-        $client = new SoapClient($wsdl_url, ["location" => "http://127.0.0.1/soap/server/server.php", "uri" => "urn:soap-conversion"]);
+        $client = new SoapClient($wsdl_url, [
+            "location" => "http://127.0.0.1/soap/server/server.php",
+            "uri" => "urn:soap-conversion"
+        ]);
 
         $response = $client->convertCurrency($amount, $currency);
 
